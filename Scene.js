@@ -5,6 +5,13 @@ Scene.prototype.render = function() {
 	
 }
 
+/**
+ * Handles mouse clicks in a scene-specific way.
+ */
+Scene.prototype.click = function() {
+
+}
+
 /** 
  * Scene.
  * @constructor

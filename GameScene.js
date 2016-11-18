@@ -1,5 +1,3 @@
-document.addEventListener("keydown", onKeyPress);
-
 /** 
  * Inherits from Scene.
  * @constructor
@@ -18,9 +16,8 @@ GameScene.prototype.render = function() {
 }
 
 /**
- * Handles the event of a mouse click.
- * @param {KeyboardEvent} e - Event handled by the method.
+ * Altered Click function. Detects where the click was.
  */
-function onKeyPress(e) {
-	console.log(e);
+GameScene.prototype.click = function(e) {
+	console.log("Click detected on game.");
 }

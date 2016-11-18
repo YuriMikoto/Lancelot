@@ -3,18 +3,17 @@
  * @constructor
  * @param {string} title - Title of the scene, used to identify it.
  */
-function MenuScene(title) {
+function OptionsScene(title) {
 	this.title = title;
 }
-MenuScene.prototype = new Scene();
+OptionsScene.prototype = new Scene();
 
 /** 
- * Altered Render function. Draws the buttons that a player can click to navigate.
+ * Altered Render function. Draws a different colour and font style.
  */
-MenuScene.prototype.render = function() {
+OptionsScene.prototype.render = function() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-	document.body.style.backgroundColor = "#EDC9AF";
+	document.body.style.backgroundColor = "#CCCCCC";
 
 	//Draw button backgrounds.
 	ctx.fillStyle = "#D2B4AC";
@@ -34,39 +33,37 @@ MenuScene.prototype.render = function() {
 	ctx.textAlign = "center";
 	ctx.textBaseline = "middle";
 	//Draw button text.
-	ctx.fillText("Arcade", 255, 55);
-	ctx.fillText("Versus", 255, 221);
-	ctx.fillText("Options", 255, 388);
-	ctx.fillText("Quit Game", 255, 555);
+	ctx.fillText("Mute BGM", 255, 55);
+	ctx.fillText("Mute SFX", 255, 221);
+	ctx.fillText("Resolution", 255, 388);
+	ctx.fillText("Back", 255, 555);
 }
 
 /**
  * Altered Click function. Detects where the click was.
  */
-MenuScene.prototype.click = function(e) {
-	console.log("Click detected on menu.");
-
+OptionsScene.prototype.click = function(e) {
 	if (e.clientX >= 5 && e.clientX <= 505 &&
 		e.clientY >= 5 && e.clientY <= 105) 
 	{//Go to Game Scene.
-		console.log("Initiate Arcade Mode");
+		console.log("Mute Music");
 	}
 
 	else if (e.clientX >= 5 && e.clientX <= 505 &&
 			 e.clientY >= 171 && e.clientY <= 271) 
 	{//Go to Game Scene.
-		console.log("Initiate Versus Mode");
+		console.log("Mute Sound");
 	}
 
 	else if (e.clientX >= 5 && e.clientX <= 505 &&
 			 e.clientY >= 338 && e.clientY <= 438) 
 	{//Go to Options Scene.
-		sm.goToScene("Options");
+		console.log("Resolution Change");
 	}
 
 	else if (e.clientX >= 5 && e.clientX <= 505 &&
 			 e.clientY >= 505 && e.clientY <= 605) 
 	{//Close tab.
-		window.close();
+		sm.goToScene("Menu");
 	}
 }

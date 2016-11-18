@@ -14,3 +14,10 @@ PauseScene.prototype = new Scene();
 PauseScene.prototype.render = function() {
 	console.log("Paused");
 }
+
+/**
+ * Altered Click function. Detects where the click was.
+ */
+PauseScene.prototype.click = function(e) {
+	console.log("Click detected on pause.");
+}
