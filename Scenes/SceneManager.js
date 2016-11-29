@@ -20,6 +20,13 @@ SceneManager.prototype.addScene = function(scene) {
  }
 
 /**
+ * Returns a reference to the current scene.
+ */
+ SceneManager.prototype.getScene = function() {
+ 	return this.currentScene;
+ }
+
+/**
  * Manages the advancement of scenes.
  * @constructor
  */
