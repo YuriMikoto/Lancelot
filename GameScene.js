@@ -28,8 +28,8 @@ GameScene.prototype.render = function() {
 
 	console.log("Play");
 
-	p1.draw();
-	p2.draw();	
+	this.p1.draw();
+	this.p2.draw();	
 }
 
 
