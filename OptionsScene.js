@@ -1,3 +1,4 @@
+
 /** 
  * Inherits from Scene.
  * @constructor
@@ -5,6 +6,11 @@
  */
 function OptionsScene(title) {
 	this.title = title;
+	
+	this.button1 = new Button(5, 5, 500, 100, "Mute BGM");
+	this.button2 = new Button(5, 171, 500, 100, "Mute SFX");
+	this.button3 = new Button(5, 338, 500, 100, "Resolution");
+	this.button4 = new Button(5, 505, 500, 100, "Back");
 }
 OptionsScene.prototype = new Scene();
 
@@ -13,57 +19,35 @@ OptionsScene.prototype = new Scene();
  */
 OptionsScene.prototype.render = function() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 	document.body.style.backgroundColor = "#CCCCCC";
 
-	//Draw button backgrounds.
-	ctx.fillStyle = "#D2B4AC";
-	ctx.fillRect(5, 5, 500, 100);
-	ctx.fillRect(5, 171, 500, 100);
-	ctx.fillRect(5, 338, 500, 100);
-	ctx.fillRect(5, 505, 500, 100);
-
-	//Draw button borders.
-	ctx.fillStyle = "#80461B";
-	ctx.strokeRect(5, 5, 500, 100);
-	ctx.strokeRect(5, 171, 500, 100);
-	ctx.strokeRect(5, 338, 500, 100);
-	ctx.strokeRect(5, 505, 500, 100);
-
-	ctx.font = "48pt Centaur";
-	ctx.textAlign = "center";
-	ctx.textBaseline = "middle";
-	//Draw button text.
-	ctx.fillText("Mute BGM", 255, 55);
-	ctx.fillText("Mute SFX", 255, 221);
-	ctx.fillText("Resolution", 255, 388);
-	ctx.fillText("Back", 255, 555);
+	this.button1.draw();
+	this.button2.draw();
+	this.button3.draw();
+	this.button4.draw();
 }
 
 /**
  * Altered Click function. Detects where the click was.
  */
 OptionsScene.prototype.click = function(e) {
-	if (e.clientX >= 5 && e.clientX <= 505 &&
-		e.clientY >= 5 && e.clientY <= 105) 
-	{//Go to Game Scene.
-		console.log("Mute Music");
-	}
+	console.log("Click detected on menu.");
 
-	else if (e.clientX >= 5 && e.clientX <= 505 &&
-			 e.clientY >= 171 && e.clientY <= 271) 
-	{//Go to Game Scene.
-		console.log("Mute Sound");
+	if (this.button1.collision(e))
+	{//Arcade button clicked.
+		console.log("Music Mute");
 	}
-
-	else if (e.clientX >= 5 && e.clientX <= 505 &&
-			 e.clientY >= 338 && e.clientY <= 438) 
-	{//Go to Options Scene.
-		console.log("Resolution Change");
+	else if (this.button2.collision(e))
+	{//VS button clicked.
+		console.log("Sound Mute");
 	}
-
-	else if (e.clientX >= 5 && e.clientX <= 505 &&
-			 e.clientY >= 505 && e.clientY <= 605) 
-	{//Close tab.
+	else if (this.button3.collision(e))
+	{//Options button clicked.
+		console.log("Resolution Options");
+	}
+	else if (this.button4.collision(e))
+	{//Quit button clicked.
 		sm.goToScene("Menu");
 	}
 }

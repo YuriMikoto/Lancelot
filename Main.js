@@ -1,13 +1,8 @@
-
-// N O T E
-
-//I seem to recall there being a way to "push" and "pop" scenes but I don't remember the specifics. 
-//We're probably gonna want to do that, right?
-
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
 
 document.addEventListener("mousedown", onMouseClick);
+document.addEventListener("touchstart", onMouseClick);
 document.addEventListener("keydown", onKeyPress);
 
 var sceneManager;
@@ -16,9 +11,8 @@ function main() {
 	var game = new Game();
 
 	document.body.appendChild(canvas);
-	canvas.height = 720;
-	canvas.width = 1280;
-
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
 	sm = new SceneManager();
 	sm.addScene(new MenuScene("Menu"));
 	sm.addScene(new GameScene("Game"));
