@@ -19,6 +19,7 @@ OptionsScene.prototype = new Scene();
  */
 OptionsScene.prototype.render = function() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+<<<<<<< HEAD
 
 	document.body.style.backgroundColor = "#CCCCCC";
 
@@ -26,6 +27,38 @@ OptionsScene.prototype.render = function() {
 	this.button2.draw();
 	this.button3.draw();
 	this.button4.draw();
+=======
+
+	document.body.style.backgroundColor = "#CCCCCC";
+
+	this.button1.draw();
+	this.button2.draw();
+	this.button3.draw();
+	this.button4.draw();
+
+	/*//Draw button backgrounds.
+	ctx.fillStyle = "#D2B4AC";
+	ctx.fillRect(5, 5, 500, 100);
+	ctx.fillRect(5, 171, 500, 100);
+	ctx.fillRect(5, 338, 500, 100);
+	ctx.fillRect(5, 505, 500, 100);
+
+	//Draw button borders.
+	ctx.fillStyle = "#80461B";
+	ctx.strokeRect(5, 5, 500, 100);
+	ctx.strokeRect(5, 171, 500, 100);
+	ctx.strokeRect(5, 338, 500, 100);
+	ctx.strokeRect(5, 505, 500, 100);
+
+	ctx.font = "48pt Centaur";
+	ctx.textAlign = "center";
+	ctx.textBaseline = "middle";
+	//Draw button text.
+	ctx.fillText("Mute BGM", 255, 55);
+	ctx.fillText("Mute SFX", 255, 221);
+	ctx.fillText("Resolution", 255, 388);
+	ctx.fillText("Back", 255, 555);*/
+>>>>>>> 23b5bc2ccbe6dfb991d19e205d6dd38b1ec861b5
 }
 
 /**
